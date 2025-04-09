@@ -4,13 +4,31 @@
   <meta charset="UTF-8">
   <title>AI占い師クーロンの館</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background: url('https://i.postimg.cc/k4FHh0sw/548013-F8-F65-F-4-F88-8129-DBAC3-BB7-D41-F.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', sans-serif;
       color: #fff;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 背景画像を擬似要素で固定表示（スマホでも安定） */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://i.postimg.cc/k4FHh0sw/548013-F8-F65-F-4-F88-8129-DBAC3-BB7-D41-F.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
     }
 
     header {
