@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>今日の12星座占い</title>
+  <style>
+    body {
+      background: url('https://i.postimg.cc/k4FHh0sw/548013-F8-F65-F-4-F88-8129-DBAC3-BB7-D41-F.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      color: #4B0082; /* 濃い紫 */
+    }
+
+    h2 {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 12px;
+      border-radius: 12px;
+      text-shadow: 0 0 5px #ff66cc, 0 0 10px #cc33ff;
+      color: #ffffff;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 横2列 */
+      grid-auto-rows: auto;
+      gap: 16px;
+      justify-content: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .card {
+      background: url('https://i.postimg.cc/nVgf6JGc/6-D0-DE8-EE-CD99-4581-A4-CD-E1-FA163-FCD48.png') no-repeat center center;
+      background-size:  cover;
+      background-color: rgba(255, 255, 255, 0.85);
+      height: 300px;
+      padding: 40px 20px;
+      border-radius: 20;
+      box-shadow: 0 0 15px rgba(75, 0, 130, 0.5);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      font-weight: bold;
+      color: #4B0082;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 12px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="date-title"></h2>
+  <div class="container" id="horoscope-container"></div>
+
+  <div class="footer">
+    この占いは <strong>AI占い師クーロン</strong> が毎日お届けしています♪<br>
+    また明日も見に来てね！
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date();
+      const dateStr = today.toLocaleDateString("ja-JP", { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById("date-title").innerText = `🌙 ${dateStr}の12星座占い 🌙`;
+
+      const seizaList = [
+        "おひつじ座", "おうし座", "ふたご座", "かに座", "しし座", "おとめ座",
+        "てんびん座", "さそり座", "いて座", "やぎ座", "みずがめ座", "うお座"
+      ];
+
+      const fortunes = [
+        "今日はとても良い日になりそう！", "チャンスが訪れるかも！", "努力が実を結ぶ日です。",
+        "少し慎重に行動すると良いでしょう。", "人とのつながりが<br>運気を上げる鍵！",
+        "新しいことに挑戦すると<br>成功するかも！", "過去の努力が報われる日です。",
+        "何かサプライズが待っているかも！", "健康に気をつけると良い日。",
+        "直感を信じると<br>良い方向に進めそう！", "運命的な出会いがあるかも！",
+        "時間を大切にすると<br>幸運が訪れるかも。", "チャレンジ精神を忘れずに！",
+        "気持ちを切り替えると<br>運気UP！", "周囲との<br>調和を大切にすると吉。",
+        "今日は大胆な行動が吉！", "リラックスする時間を<br>作ると良いかも。",
+        "細かいことに気を取られず<br>大局を見ると◎", "知識を増やすとチャンスが広がる！",
+        "大切な人と連絡を取ると良い日。", "初心に戻ることで<br>新たな発見があるかも！",
+        "ポジティブな考え方が<br>運気を引き寄せる！", "何か新しい趣味を始めると良いかも。",
+        "周囲の意見をよく聞くと<br>良いことがありそう！", "自分にご褒美をあげると<br>運気が上がる！",
+        "焦らずじっくり進めば<br>成功しそう。", "今日はシンプルに楽しもう！",
+        "好奇心を持つことで<br>素敵な発見があるかも！"
+      ];
+
+      const colors = ["赤", "青", "緑", "黄色", "紫", "ピンク", "オレンジ", "黒", "白", "金", "銀", "水色"];
+
+      const colorMap = {
+        "赤": "red", "青": "blue", "緑": "green", "黄色": "yellow", "紫": "purple",
+        "ピンク": "pink", "オレンジ": "orange", "黒": "black", "白": "white",
+        "金": "gold", "銀": "silver", "水色": "skyblue"
+      };
+
+
+      const items = [
+        "ノート", "時計", "スマホ", "本", "イヤホン", "ペン", "キーケース", "リング", "コーヒー", "メガネ",
+        "タオル", "シューズ", "バックパック", "キャンドル", "ハンカチ", "サングラス", "手帳", "アクセサリー",
+        "ボトル", "ブレスレット"
+      ];
+
+      function shuffleArray(array) {
+        let shuffled = array.slice();
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      }
+
+      function generateHoroscope() {
+        const container = document.getElementById("horoscope-container");
+        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        Math.seedrandom(seed);
+
+        const shuffledFortunes = shuffleArray(fortunes).slice(0, 12);
+        const shuffledItems = shuffleArray(items).slice(0, 12);
+
+        seizaList.forEach((seiza, index) => {
+  const fortune = shuffledFortunes[index];
+  const colorName = colors[index % colors.length];
+  const cssColor = colorMap[colorName];
+  const item = shuffledItems[index];
+
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = `
+    <h3>${seiza}</h3>
+    <p><strong>運勢：</strong>${fortune}</p>
+    <p><strong>ラッキーカラー：</strong><span style="color:${cssColor};">${colorName}</span></p>
+    <p><strong>ラッキーアイテム：</strong>${item}</p>
+  `;
+  container.appendChild(card);
+});
+      }
+
+      generateHoroscope();
+    });
+  </script>
+
+</body>
+</html>
