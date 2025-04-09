@@ -2,22 +2,34 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI占い師クーロンの館</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background: url('https://i.postimg.cc/k4FHh0sw/548013-F8-F65-F-4-F88-8129-DBAC3-BB7-D41-F.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', sans-serif;
       color: #fff;
+      position: relative;
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    .content-wrapper {
-      background: rgba(0, 0, 0, 0.6);
-      min-height: 100vh;
+    /* 背景画像を擬似要素で固定表示（スマホでも安定） */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://i.postimg.cc/k4FHh0sw/548013-F8-F65-F-4-F88-8129-DBAC3-BB7-D41-F.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
     }
 
     header {
@@ -29,32 +41,9 @@
 
     header h1 {
       margin: 0;
-      font-size: 2.2em;
+      font-size: 2.5em;
       color: #ff66cc;
       text-shadow: 0 0 10px #cc33ff, 0 0 20px #9933ff;
-    }
-
-    .intro {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .intro img {
-      width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #cc33ff;
-    }
-
-    .intro-text {
-      max-width: 500px;
-      line-height: 1.8;
-      font-size: 1em;
     }
 
     nav {
@@ -74,9 +63,6 @@
       border-radius: 8px;
       box-shadow: 0 0 10px #9933ff;
       transition: background 0.3s, transform 0.2s;
-      width: 160px;
-      text-align: center;
-      font-weight: bold;
     }
 
     nav a:hover {
@@ -84,12 +70,28 @@
       transform: scale(1.05);
     }
 
-    .nav-top {
-      margin-top: 10px;
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      margin: 20px;
+      border-radius: 20px;
     }
 
-    .nav-bottom {
-      margin-top: 10px;
+    .intro img {
+      width: 150px;
+      height: auto;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    .intro-text {
+      max-width: 500px;
+      padding: 10px;
+      font-size: 1.1em;
     }
 
     footer {
@@ -101,23 +103,14 @@
       border-top: 1px solid #9933ff;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 600px) {
       .intro {
         flex-direction: column;
         text-align: center;
       }
 
-      .intro img {
-        width: 60%;
-      }
-
-      nav a {
-        width: 100%;
-        max-width: 250px;
-      }
-
       .intro-text {
-        font-size: 0.95em;
+        font-size: 1em;
       }
 
       header h1 {
@@ -128,39 +121,32 @@
 </head>
 <body>
 
-  <div class="content-wrapper">
+  <header>
+    <h1>AI占い師クーロンの館</h1>
+  </header>
 
-    <header>
-      <h1>AI占い師クーロンの館</h1>
-    </header>
+  <nav>
+    <a href="uranai.html">今日の占い</a>
+    <a href="diary.html">日記</a>
+    <a href="character.html">キャラクター紹介</a>
+    <a href="creator.html">クリエイター紹介</a>
+    <a href="stamp.html">LINEスタンプ</a>
+    <a href="support.html">クリエイター支援</a>
+    <a href="note.html">注意事項</a>
+  </nav>
 
-    <div class="intro">
-      <img src="https://i.postimg.cc/DwYrJRXq/IMG-4640.png" alt="クーロンのイラスト">
-      <div class="intro-text">
-        <p>あなたの今日を照らす、ちょっと不思議な館へようこそ。</p>
-        <p>この館では、あなたの1日をちょっとだけ彩る占いや<br>クーロンのひとこと日記などをご紹介しています。</p>
-        <p>気になるページを選んでみてくださいね。</p>
-      </div>
+  <main class="intro">
+    <img src="https://i.postimg.cc/DwYrJRXq/IMG-4640.png" alt="キャラクター画像">
+    <div class="intro-text">
+      <p>あなたの今日を照らす、ちょっと不思議な館へようこそ。</p>
+      <p>この館では、あなたの1日をちょっとだけ彩る占いや<br>クーロンのひとこと日記などをご紹介しています。</p>
+      <p>気になるページを選んでみてくださいね。</p>
     </div>
+  </main>
 
-    <nav class="nav-top">
-      <a href="uranai.html">今日の占い</a>
-      <a href="diary.html">日記</a>
-      <a href="character.html">キャラクター紹介</a>
-    </nav>
-
-    <nav class="nav-bottom">
-      <a href="creator.html">クリエイター紹介</a>
-      <a href="stamp.html">LINEスタンプ</a>
-      <a href="support.html">クリエイター支援</a>
-      <a href="note.html">注意事項</a>
-    </nav>
-
-    <footer>
-      &copy; 2025 AI占い師クーロンの館
-    </footer>
-
-  </div>
+  <footer>
+    &copy; 2025 AI占い師クーロンの館
+  </footer>
 
 </body>
 </html>
