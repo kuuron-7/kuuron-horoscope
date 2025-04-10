@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>クリエイター募金 - AI占い師クーロンの館</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://i.postimg.cc/k4FHh0sw/548013-F8-F65-F-4-F88-8129-DBAC3-BB7-D41-F.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px #cc33ff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ff66cc;
+      text-shadow: 0 0 10px #cc33ff, 0 0 20px #9933ff;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 20px #9933ff;
+    }
+
+    .content p {
+      font-size: 1.2em;
+      line-height: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .qr-code {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .qr-code img {
+      width: 250px;
+      height: 250px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff66cc;
+    }
+
+    .qr-code p {
+      font-size: 1em;
+      color: #ffcccc;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #ccc;
+      font-size: 0.9em;
+      border-top: 1px solid #9933ff;
+      margin-top: 40px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .content {
+        margin: 20px;
+        padding: 15px;
+      }
+      .content p {
+        font-size: 1em;
+      }
+      .qr-code img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>クリエイター募金</h1>
+  </header>
+
+  <main class="content">
+    <p>この館を維持し、より良いコンテンツを提供するための支援を受け付けています。</p>
+    <p>いただいた募金は、<strong>運営維持費や機材、活動費</strong>に使わせていただきます。</p>
+    <p>もしご支援いただける場合は、以下のQRコードをご利用ください。</p>
+
+    <div class="qr-code">
+      <!-- ここにQRコードのURLを設定してください -->
+      <img src="https://example.com/your_qr_code.png" alt="募金用QRコード">
+      <p>※QRコードが更新されていない場合は、少し時間をおいて再読み込みしてください。</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 AI占い師クーロンの館
+  </footer>
+
+</body>
+</html>
