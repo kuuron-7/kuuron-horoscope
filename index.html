@@ -16,6 +16,8 @@
       position: relative;
       min-height: 100vh;
       overflow-x: hidden;
+      font-size: 18px; /* 全体の文字サイズを大きく */
+      line-height: 1.8; /* 行間を広げる */
     }
 
     /* 背景画像を擬似要素で固定表示（スマホでも安定） */
@@ -40,7 +42,7 @@
 
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.8em; /* タイトルを少し大きく */
       color: #ff66cc;
       text-shadow: 0 0 10px #cc33ff, 0 0 20px #9933ff;
     }
@@ -52,30 +54,30 @@
       justify-content: center;
       background: rgba(0, 0, 0, 0.6);
       margin: 20px;
-      padding: 20px;
+      padding: 25px;
       border-radius: 20px;
     }
 
     .intro img {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 12px;
-      margin: 10px;
+      margin: 15px;
     }
 
     .intro-text {
-      max-width: 500px;
+      max-width: 550px;
       margin: 10px;
-      font-size: 1.1em;
-      line-height: 1.6em;
+      font-size: 1.2em; /* 本文を大きく */
+      line-height: 1.8em;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
-      padding: 20px;
+      gap: 20px;
+      padding: 25px;
       background: rgba(0, 0, 0, 0.5);
     }
 
@@ -83,12 +85,13 @@
       background: rgba(204, 51, 255, 0.2);
       color: #fff;
       text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 8px;
+      padding: 15px 25px;
+      border-radius: 10px;
       box-shadow: 0 0 10px #9933ff;
       transition: background 0.3s, transform 0.2s;
-      min-width: 140px;
+      min-width: 160px; /* ボタンサイズを大きく */
       text-align: center;
+      font-size: 1.1em;
     }
 
     nav a:hover {
@@ -98,32 +101,43 @@
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       background: rgba(0, 0, 0, 0.5);
       color: #ccc;
-      font-size: 0.9em;
+      font-size: 1em;
       border-top: 1px solid #9933ff;
     }
 
     /* スマホ向け調整 */
     @media screen and (max-width: 600px) {
+      body {
+        font-size: 20px; /* スマホでさらに読みやすく */
+      }
       .intro {
         flex-direction: column;
         text-align: center;
+        padding: 20px;
       }
 
       .intro img {
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
       }
 
       .intro-text {
-        font-size: 1em;
-        padding: 0 10px;
+        font-size: 1.3em;
+        padding: 0 15px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
       }
 
       nav a {
-        width: 45%;
+        width: 80%;
+        padding: 18px 0;
+        font-size: 1.2em;
       }
     }
   </style>
