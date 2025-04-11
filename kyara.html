@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>キャラクター紹介 - AI占い師クーロンの館</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://i.postimg.cc/k4FHh0sw/548013-F8-F65-F-4-F88-8129-DBAC3-BB7-D41-F.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px #cc33ff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ff66cc;
+      text-shadow: 0 0 10px #cc33ff, 0 0 20px #9933ff;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 20px #9933ff;
+    }
+
+    .content p {
+      font-size: 1.2em;
+      line-height: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .character-image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .character-image img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff66cc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #ccc;
+      font-size: 0.9em;
+      border-top: 1px solid #9933ff;
+      margin-top: 40px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .content {
+        margin: 20px;
+        padding: 15px;
+      }
+      .content p {
+        font-size: 1em;
+      }
+      .character-image img {
+        width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>キャラクター紹介</h1>
+  </header>
+
+  <main class="content">
+    <p><strong>名前：</strong>クーロン</p>
+    <p><strong>年齢：</strong>？？</p>
+    <p><strong>身長：</strong>約165cm</p>
+    <p><strong>趣味：</strong>夜空を見上げながら星座の秘密を探ることや、<br>神秘的な詩集・古文書を読むこと。</p>
+    <p><strong>好きな食べ物：</strong>イチゴ、パフェ</p>
+
+    <!-- 画像URLをここに挿入 -->
+    <div class="character-image">
+      <img src="画像URLをここに挿入" alt="クーロンのイラスト">
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 AI占い師クーロンの館
+  </footer>
+
+</body>
+</html>
