@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>AI占い師クーロンの館 - 日記</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://i.postimg.cc/k4FHh0sw/548013-F8-F65-F-4-F88-8129-DBAC3-BB7-D41-F.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px #cc33ff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ff66cc;
+      text-shadow: 0 0 10px #cc33ff, 0 0 20px #9933ff;
+    }
+
+    .calendar {
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .calendar button {
+      background-color: rgba(204, 51, 255, 0.2);
+      color: white;
+      padding: 10px;
+      border: none;
+      margin: 5px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #9933ff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .calendar button:hover {
+      background: rgba(255, 102, 204, 0.4);
+    }
+
+    .diary-entry {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 12px;
+      max-width: 800px;
+      box-shadow: 0 0 20px #9933ff;
+    }
+
+    .diary-entry h2 {
+      font-size: 2em;
+      color: #ff66cc;
+    }
+
+    .diary-entry p {
+      font-size: 1.2em;
+      line-height: 1.8em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #ccc;
+      font-size: 0.9em;
+      border-top: 1px solid #9933ff;
+      margin-top: 40px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AI占い師クーロンの館 - 日記</h1>
+  </header>
+
+  <!-- カレンダーの表示 -->
+  <div class="calendar" id="calendar"></div>
+
+  <!-- 日記表示部分 -->
+  <div id="diary-content"></div>
+
+  <footer>
+    &copy; 2025 AI占い師クーロンの館
+  </footer>
+
+  <script>
+    const diaryData = [
+      {
+        "date": "2025-04-01",
+        "entry": "今日はとても楽しい一日でした。夜空を見上げながら、星座を調べました。次の機会にはもっと多くの星座を覚えようと思います。普段は忙しいので、星を見上げることが少ないですが、今日は特に美しい夜空でした。"
+      },
+      {
+        "date": "2025-04-02",
+        "entry": "今日は新しい本を手に入れました。それは古文書について書かれた本で、神秘的な内容がたくさん詰まっていました。帰り道には気になるカフェに立ち寄り、美味しいパフェを食べました。イチゴの甘さが最高でした。"
+      }
+    ];
+
+    // 日記の表示を行う関数
+    function showDiary(date) {
+      const diaryEntry = diaryData.find(entry => entry.date === date);
+      const diaryContent = document.getElementById('diary-content');
+      
+      if (diaryEntry) {
+        const formattedEntry = diaryEntry.entry.replace(/\n/g, "<br>");  // 改行を <br> に変換
+
+        diaryContent.innerHTML = `
+          <div class="diary-entry">
+            <h2>${diaryEntry.date}</h2>
+            <p>${formattedEntry}</p>
+            <button onclick="showDiary('${getPreviousDate(date)}')">前の日</button>
+            <button onclick="showDiary('${getNextDate(date)}')">次の日</button>
+          </div>
+        `;
+      } else {
+        diaryContent.innerHTML = '<p>この日に日記はありません。</p>';
+      }
+    }
+
+    // 前の日を取得
+    function getPreviousDate(date) {
+      const newDate = new Date(date);
+      newDate.setDate(newDate.getDate() - 1);
+      return newDate.toISOString().split('T')[0]; // YYYY-MM-DD 形式
+    }
+
+    // 次の日を取得
+    function getNextDate(date) {
+      const newDate = new Date(date);
+      newDate.setDate(newDate.getDate() + 1);
+      return newDate.toISOString().split('T')[0]; // YYYY-MM-DD 形式
+    }
+
+    // カレンダーを生成
+    function generateCalendar() {
+      const calendar = document.getElementById('calendar');
+      let calendarHTML = '';
+
+      for (let i = 1; i <= 30; i++) {  // 30日までのカレンダー
+        const date = `2025-04-${i.toString().padStart(2, '0')}`;
+        calendarHTML += `<button onclick="showDiary('${date}')">${i}</button>`;
+      }
+
+      calendar.innerHTML = calendarHTML;
+    }
+
+    // 初期表示
+    generateCalendar();
+  </script>
+
+</body>
+</html>
