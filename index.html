@@ -72,31 +72,31 @@
       line-height: 1.8em;
     }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 25px;
-      background: rgba(0, 0, 0, 0.5);
+   /* ナビゲーションバナーのスタイル */
+    .nav-banner {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 0;
+    box-shadow: 0 0 15px #9933ff inset;
+    margin-bottom: 20px;
     }
 
-    nav a {
-      background: rgba(204, 51, 255, 0.2);
-      color: #fff;
-      text-decoration: none;
-      padding: 15px 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #9933ff;
-      transition: background 0.3s, transform 0.2s;
-      min-width: 160px; /* ボタンサイズを大きく */
-      text-align: center;
-      font-size: 1.1em;
+    .nav-banner a {
+    display: inline-block;
+    color: #ffccff;
+    background-color: rgba(204, 51, 255, 0.15);
+    padding: 10px 20px;
+    margin: 5px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px #cc33ff;
+    transition: background 0.3s, transform 0.2s;
     }
 
-    nav a:hover {
-      background: rgba(255, 102, 204, 0.4);
-      transform: scale(1.05);
+    .nav-banner a:hover {
+    background-color: rgba(255, 102, 204, 0.4);
+    transform: scale(1.05);
     }
 
     footer {
@@ -157,7 +157,7 @@
     </div>
   </main>
 
-  <nav>
+  <nav class="nav-banner">
     <a href="uranai.html">今日の占い</a>
     <a href="diary.html">日記</a>
     <a href="kyara.html">キャラクター紹介</a>
