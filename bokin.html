@@ -44,6 +44,32 @@
       text-shadow: 0 0 10px #cc33ff, 0 0 20px #9933ff;
     }
 
+    /* ナビゲーションバナーのスタイル */
+    .nav-banner {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 0;
+    box-shadow: 0 0 15px #9933ff inset;
+    margin-bottom: 20px;
+    }
+
+    .nav-banner a {
+    display: inline-block;
+    color: #ffccff;
+    background-color: rgba(204, 51, 255, 0.15);
+    padding: 10px 20px;
+    margin: 5px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px #cc33ff;
+    transition: background 0.3s, transform 0.2s;
+    }
+
+    .nav-banner a:hover {
+    background-color: rgba(255, 102, 204, 0.4);
+    transform: scale(1.05);
+    }
     .content {
       max-width: 800px;
       margin: 40px auto;
@@ -89,13 +115,26 @@
     }
 
     @media screen and (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        width: 80%;
+        padding: 18px 0;
+        font-size: 1.2em;
+      }
+
       .content {
         margin: 20px;
         padding: 15px;
       }
+
       .content p {
         font-size: 1em;
       }
+
       .qr-code img {
         width: 200px;
         height: 200px;
@@ -109,13 +148,23 @@
     <h1>クリエイター募金</h1>
   </header>
 
+  <!-- ナビゲーション追加 -->
+  <nav class="nav-banner">
+    <a href="index.html">トップ</a>
+    <a href="uranai.html">今日の占い</a>
+    <a href="diary.html">日記</a>
+    <a href="kyara.html">キャラクター紹介</a>
+    <a href="syoukai.html">クリエイター紹介</a>
+    <a href="sutanpu.html">LINEスタンプ</a>
+    <a href="tyuui.html">注意事項</a>
+  </nav>
+
   <main class="content">
     <p>この館を維持し、より良いコンテンツを提供するための支援を受け付けています。</p>
     <p>いただいた募金は、<strong>運営維持費や機材、活動費</strong>に使わせていただきます。</p>
     <p>もしご支援いただける場合は、以下のQRコードをご利用ください。</p>
 
     <div class="qr-code">
-      <!-- ここにQRコードのURLを設定してください -->
       <img src="https://example.com/your_qr_code.png" alt="募金用QRコード">
       <p>※QRコードが更新されていない場合は、少し時間をおいて再読み込みしてください。</p>
     </div>
